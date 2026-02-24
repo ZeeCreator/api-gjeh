@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "package.json",
+      "src": "api/index.js",
       "use": "@vercel/node"
     }
   ],
@@ -14,19 +14,20 @@
   ],
   "env": {
     "NODE_ENV": "production",
-    "VERCEL_ENV": "production",
     "BASE_URL": "https://otakudesu.best",
     "CACHE_TTL_LATEST": "300",
     "CACHE_TTL_ANIME": "600",
-    "CACHE_TTL_SEARCH": "180"
+    "CACHE_TTL_SEARCH": "180",
+    "REQUEST_DELAY_MIN": "500",
+    "REQUEST_DELAY_MAX": "1500",
+    "PUPPETEER_HEADLESS": "true",
+    "PUPPETEER_TIMEOUT": "30000"
   },
   "functions": {
     "api/index.js": {
-      "maxDuration": 60
+      "maxDuration": 60,
+      "memory": 1024
     }
   },
-  "regions": ["sin1"],
-  "project": {
-    "name": "otaku-api"
-  }
+  "regions": ["sin1"]
 }

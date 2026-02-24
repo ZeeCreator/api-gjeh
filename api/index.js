@@ -1,14 +1,19 @@
 /**
- * Vercel Serverless Function Entry Point
+ * Vercel Serverless Function - Entry Point
  * 
- * @type {import('@vercel/node/types/helpers').NowHandler}
+ * This file is the main entry point for Vercel deployment.
+ * It exports an Express app that handles all HTTP requests.
  */
 
 const app = require('./vercel');
 
-// Export default untuk Vercel
+// Export untuk Vercel Serverless
 module.exports = app;
 module.exports.default = app;
 
-// Named export untuk kompatibilitas
-module.exports.handler = app;
+// Handler export untuk kompatibilitas
+const handler = async (req, res) => {
+  return app(req, res);
+};
+
+module.exports.handler = handler;

@@ -1,7 +1,4 @@
-# Dependencies (Vercel will install)
-node_modules/
-
-# Environment files
+# Environment files (JANGAN include di deployment)
 .env
 .env.local
 .env.*.local
@@ -21,7 +18,7 @@ docker-compose.override.yml
 Dockerfile
 .dockerignore
 
-# Development only
+# Development only (server tradisional)
 server.js
 serverless/
 
@@ -30,6 +27,8 @@ coverage/
 .nyc_output/
 *.test.js
 *.spec.js
+test-vercel.js
+vercel.build.json
 
 # OS files
 .DS_Store
@@ -37,7 +36,17 @@ coverage/
 *.swo
 *~
 Thumbs.db
+desktop.ini
 
 # IDE
 .vscode/
 .idea/
+*.sublime-project
+*.sublime-workspace
+
+# Git
+.git/
+.gitignore
+
+# Vercel build artifacts
+.vercel/
